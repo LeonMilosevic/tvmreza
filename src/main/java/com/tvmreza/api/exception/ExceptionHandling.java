@@ -15,7 +15,7 @@ import com.tvmreza.api.exception.domain.CategoryException;
 import com.tvmreza.api.exception.domain.HtppRequestMethodNotSupportedException;
 import com.tvmreza.api.exception.domain.NotEnoughPermissionException;
 
-@RestControllerAdvice
+//@RestControllerAdvice
 public class ExceptionHandling {
 	private static final String METHOD_IS_NOT_ALLOWED = "This request method is not allowed on this endpoint. Please send a '%s' request.";
 	private static final String INTERNAL_SERVER_ERROR_MSG = "An error has occured while processing the request";

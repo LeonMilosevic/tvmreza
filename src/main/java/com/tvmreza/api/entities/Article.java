@@ -10,16 +10,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "article")
 public class Article {
+	// TODO Define proper relationships with category and posts. Learn more about
+	// it.
+	// TODO When fetching category, fetch its articles as well.
+	// TODO Finish rest controllers for admin
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long categoryId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id", nullable = false)
+	@JsonIgnore
+	private Category category;
 	private String keywords;
 	private String videoUrl;
 	private String imageUrl;
@@ -29,11 +39,19 @@ public class Article {
 	private int timesViewed;
 	private Timestamp dateCreated;
 	private Date dateDisplay;
-	@OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
-	@JoinColumn(name = "articleId")
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+	@JoinColumn(name = "fk_article")
 	private Set<Post> posts;
 
 	public Article() {
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Long getId() {
@@ -42,14 +60,6 @@ public class Article {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public String getKeywords() {
