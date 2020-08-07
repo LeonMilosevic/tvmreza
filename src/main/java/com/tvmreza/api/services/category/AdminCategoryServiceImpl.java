@@ -60,8 +60,8 @@ public class AdminCategoryServiceImpl implements AdminCategoryService {
 	}
 
 	@Override
-	public List<Category> readAllCategory() {
-		return categoryRepository.findAll();
+	public List<Category> readAllCategorySortedByCategoryOrder() {
+		return categoryRepository.findByOrderByCategoryOrderAsc();
 	}
 
 }

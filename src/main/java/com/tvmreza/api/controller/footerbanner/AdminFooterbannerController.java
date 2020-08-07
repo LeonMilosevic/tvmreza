@@ -59,9 +59,9 @@ public class AdminFooterbannerController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
+	@RequestMapping("/read/all/ordered")
 	public List<Footerbanner> readAllFooterbanner() {
-		return footerbannerRepository.findAll();
+		return footerbannerRepository.findByOrderByFooterbannerOrderAsc();
 	}
 
 }

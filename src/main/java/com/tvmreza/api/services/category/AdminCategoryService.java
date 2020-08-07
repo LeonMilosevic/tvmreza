@@ -23,5 +23,5 @@ public interface AdminCategoryService {
 
 	public void removeCategory(Long id);
 
-	public List<Category> readAllCategory();
+	public List<Category> readAllCategorySortedByCategoryOrder();
 }

@@ -1,8 +1,9 @@
 package com.tvmreza.api.entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "article")
 public class Article {
-	// TODO Define proper relationships with category and posts. Learn more about
-	// it.
 	// TODO When fetching category, fetch its articles as well.
-	// TODO Finish rest controllers for admin
+	// TODO Finish rest controllers for admin.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -30,6 +29,7 @@ public class Article {
 	@JoinColumn(name = "category_id", nullable = false)
 	@JsonIgnore
 	private Category category;
+	private String categoryName;
 	private String keywords;
 	private String videoUrl;
 	private String imageUrl;
@@ -39,11 +39,18 @@ public class Article {
 	private int timesViewed;
 	private Timestamp dateCreated;
 	private Date dateDisplay;
-	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
-	@JoinColumn(name = "fk_article")
-	private Set<Post> posts;
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "article")
+	private List<Post> posts = new ArrayList<>();
 
 	public Article() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Category getCategory() {
@@ -54,12 +61,12 @@ public class Article {
 		this.category = category;
 	}
 
-	public Long getId() {
-		return id;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 	public String getKeywords() {
@@ -134,11 +141,11 @@ public class Article {
 		this.dateDisplay = dateDisplay;
 	}
 
-	public Set<Post> getPosts() {
+	public List<Post> getPosts() {
 		return posts;
 	}
 
-	public void setPosts(Set<Post> posts) {
+	public void setPosts(List<Post> posts) {
 		this.posts = posts;
 	}
 

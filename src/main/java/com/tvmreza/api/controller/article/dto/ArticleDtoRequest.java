@@ -3,6 +3,7 @@ package com.tvmreza.api.controller.article.dto;
 import java.util.Date;
 
 public class ArticleDtoRequest {
+	private Long id;
 	private Long categoryId;
 	private String keywords;
 	private String videoUrl;
@@ -14,6 +15,14 @@ public class ArticleDtoRequest {
 	private Date dateDisplay;
 
 	public ArticleDtoRequest() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getCategoryId() {

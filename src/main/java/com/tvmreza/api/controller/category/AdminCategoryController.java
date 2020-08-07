@@ -58,8 +58,8 @@ public class AdminCategoryController extends ExceptionHandling {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
-	public List<Category> readAllCategory() {
-		return adminCategoryService.readAllCategory();
+	@RequestMapping("/read/all/ordered")
+	public List<Category> readAllCategorySortedByCategoryOrder() {
+		return adminCategoryService.readAllCategorySortedByCategoryOrder();
 	}
 }
