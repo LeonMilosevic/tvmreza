@@ -18,8 +18,8 @@ import com.tvmreza.api.exception.domain.CategoryException;
 import com.tvmreza.api.services.category.AdminCategoryService;
 
 /**
- * title: Admin Category Controller Purpose: Allowing administrator to perform
- * CRUD functionality for Category entity class. methods: Self explanatory.
+ * Admin Category Controller. Allowing administrator to perform CRUD
+ * functionality for Category entity class.
  * 
  * @see AdminCategoryService, AdminCategoryServiceImpl
  * @author leon

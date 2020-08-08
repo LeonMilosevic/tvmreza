@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "article")
 public class Article {
-	// TODO When fetching category, fetch its articles as well.
-	// TODO Finish rest controllers for admin.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -40,6 +39,7 @@ public class Article {
 	private Timestamp dateCreated;
 	private Date dateDisplay;
 	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "article")
+	@OrderBy("dateCreated DESC")
 	private List<Post> posts = new ArrayList<>();
 
 	public Article() {

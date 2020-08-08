@@ -1,5 +1,7 @@
 package com.tvmreza.api.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class Post {
 	private Article article;
 	private String username;
 	private String textContent;
+	private Timestamp dateCreated;
 
 	public Post() {
 	}
@@ -58,6 +61,14 @@ public class Post {
 
 	public void setTextContent(String textContent) {
 		this.textContent = textContent;
+	}
+
+	public Timestamp getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Timestamp dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 }

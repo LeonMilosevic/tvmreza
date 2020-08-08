@@ -11,6 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Article;
 import com.tvmreza.api.repositories.ArticleRepository;
 
+/**
+ * Public Article controller, to read queries available for client side. Methods
+ * can retrieve articles ordered by most recent, and by most viewed.
+ * 
+ * @see ArticleRepository
+ * @author leon
+ *
+ */
 @RestController
 @RequestMapping("/public/article")
 public class PublicArticleController {

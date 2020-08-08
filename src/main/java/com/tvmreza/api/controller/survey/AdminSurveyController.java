@@ -15,6 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Survey;
 import com.tvmreza.api.repositories.SurveyRepository;
 
+/**
+ * Admin survey controller, used by Admin, to perform CRUD operations on Survey
+ * entity.
+ * 
+ * @see SurveyRepository
+ * @author leon
+ *
+ */
 @RestController
 @RequestMapping("/admin/survey")
 public class AdminSurveyController {
@@ -56,7 +64,7 @@ public class AdminSurveyController {
 
 	@GetMapping
 	@RequestMapping("/read/all")
-	public List<Survey> readAllSurvey() {
-		return surveyRepository.findAll();
+	public List<Survey> readAllSurveyOrdered() {
+		return surveyRepository.findByOrderByDateCreatedDesc();
 	}
 }

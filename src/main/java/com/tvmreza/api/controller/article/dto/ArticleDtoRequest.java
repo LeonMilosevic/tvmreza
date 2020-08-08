@@ -2,6 +2,15 @@ package com.tvmreza.api.controller.article.dto;
 
 import java.util.Date;
 
+/**
+ * Data transfer object class, so it can accept a request body from the client,
+ * store category id, which is later used to populate category object in Article
+ * entity.
+ * 
+ * @see Article
+ * @author leon
+ *
+ */
 public class ArticleDtoRequest {
 	private Long id;
 	private Long categoryId;

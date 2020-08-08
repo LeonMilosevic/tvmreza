@@ -12,6 +12,15 @@ import com.tvmreza.api.entities.Article;
 import com.tvmreza.api.entities.Category;
 import com.tvmreza.api.repositories.CategoryRepository;
 
+/**
+ * Public category controller, used for client requests. There is a method to
+ * retrieve categories by order value, and a method to get all the articles from
+ * that method.
+ * 
+ * @see CategoryRepository
+ * @author leon
+ *
+ */
 @RestController
 @RequestMapping("/public/category")
 public class PublicCategoryController {

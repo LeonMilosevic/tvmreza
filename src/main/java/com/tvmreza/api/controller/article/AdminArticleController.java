@@ -16,6 +16,13 @@ import com.tvmreza.api.controller.article.dto.ArticleDtoRequest;
 import com.tvmreza.api.entities.Article;
 import com.tvmreza.api.services.article.AdminArticleService;
 
+/**
+ * Admin article controller, to perform CRUD operations on the entity Article class.
+ * 
+ * @see AdminArticleService, AdminArticleServiceImpl
+ * @author leon
+ */
+
 @RestController
 @RequestMapping("/admin/article")
 public class AdminArticleController {
@@ -48,8 +55,8 @@ public class AdminArticleController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
-	public List<Article> readAllArticles() {
+	@RequestMapping("/read/all/ordered")
+	public List<Article> readAllArticlesByOrder() {
 		return adminArticleService.readAllArticles();
 	}
 }

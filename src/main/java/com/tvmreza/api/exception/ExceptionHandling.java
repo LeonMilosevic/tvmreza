@@ -15,18 +15,19 @@ import com.tvmreza.api.exception.domain.CategoryException;
 import com.tvmreza.api.exception.domain.HtppRequestMethodNotSupportedException;
 import com.tvmreza.api.exception.domain.NotEnoughPermissionException;
 
-//@RestControllerAdvice
+@RestControllerAdvice
 public class ExceptionHandling {
 	private static final String METHOD_IS_NOT_ALLOWED = "This request method is not allowed on this endpoint. Please send a '%s' request.";
 	private static final String INTERNAL_SERVER_ERROR_MSG = "An error has occured while processing the request";
 	private static final String NOT_ENOUGH_PERMISSION = "You do not have permission to view this";
 	private static final String CATEGORY_ERROR = "Error, order must be bigger than 0, category name must not be empty, category name must be unique.";
 	private static final String CATEGORY_DOES_NOT_EXIST = "Category does not exist, please try again.";
+
 	@ExceptionHandler(CategoryException.class)
 	public ResponseEntity<HttpResponse> categoryErrorException() {
 		return createHttpResponse(HttpStatus.BAD_REQUEST, CATEGORY_ERROR);
 	}
-	
+
 	@ExceptionHandler(CategoryDoesNotExistException.class)
 	public ResponseEntity<HttpResponse> categoryDoesNotExistErrorException() {
 		return createHttpResponse(HttpStatus.NOT_FOUND, CATEGORY_DOES_NOT_EXIST);

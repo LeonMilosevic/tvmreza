@@ -1,5 +1,7 @@
 package com.tvmreza.api.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +25,7 @@ public class Survey {
 	private Long questionThreeCount;
 	private Long questionFourCount;
 	private Long questionFiveCount;
+	private Timestamp dateCreated;
 
 	public Survey() {
 	}
@@ -121,6 +124,14 @@ public class Survey {
 
 	public void setQuestionFiveCount(Long questionFiveCount) {
 		this.questionFiveCount = questionFiveCount;
+	}
+
+	public Timestamp getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Timestamp dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 }

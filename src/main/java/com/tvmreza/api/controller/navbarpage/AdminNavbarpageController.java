@@ -15,6 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Navbarpage;
 import com.tvmreza.api.repositories.NavbarpageRepository;
 
+/**
+ * admin navbarpage controller, admin can perform CRUD operations on a
+ * Navbarpage entity, which will be added to the nav bar on the front-end and it
+ * will link to a custom made admin page.
+ * 
+ * @see NavbarpageRepository, Navbarpage
+ * @author leon
+ *
+ */
 @RestController
 @RequestMapping("/admin/navbarpage")
 public class AdminNavbarpageController {
@@ -60,9 +69,9 @@ public class AdminNavbarpageController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
+	@RequestMapping("/read/all/ordered")
 	public List<Navbarpage> readAllNavbarpage() {
-		return navbarpageRepository.findAll();
+		return navbarpageRepository.findByOrderByNavbarOrderAsc();
 	}
 
 }

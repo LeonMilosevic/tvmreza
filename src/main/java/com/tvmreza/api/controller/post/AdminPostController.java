@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Post;
 import com.tvmreza.api.repositories.PostRepository;
 
+/**
+ * Admin post controller, admin will be able to remove and retrieve list of all
+ * posts sorted by most recent.
+ * 
+ * @see PostRepository, Post
+ * @author leon
+ */
 @RestController
 @RequestMapping("/admin/post")
 public class AdminPostController {
@@ -29,6 +36,6 @@ public class AdminPostController {
 	@GetMapping
 	@RequestMapping("/read/all")
 	public List<Post> readAllPosts() {
-		return postRepository.findAll();
+		return postRepository.findByOrderByDateCreatedDesc();
 	}
 }

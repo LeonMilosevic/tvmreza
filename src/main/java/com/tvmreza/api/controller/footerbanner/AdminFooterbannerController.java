@@ -15,6 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Footerbanner;
 import com.tvmreza.api.repositories.FooterbannerRepository;
 
+/**
+ * Footer banners controller, so admin can perform CRUD operations on the entity
+ * Footerbanner.
+ * 
+ * @see Footerbanner, FooterbannerRepository
+ * 
+ * @author leon
+ *
+ */
+
 @RestController
 @RequestMapping("/admin/footerbanner")
 public class AdminFooterbannerController {

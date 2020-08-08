@@ -93,7 +93,7 @@ public class AdminArticleServiceImpl implements AdminArticleService {
 
 	@Override
 	public List<Article> readAllArticles() {
-		return articleRepository.findAll();
+		return articleRepository.findByOrderByDateDisplayDesc();
 	}
 
 }

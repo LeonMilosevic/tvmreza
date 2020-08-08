@@ -59,9 +59,9 @@ public class AdminVideosectionController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
-	public List<Videosection> readAllVideosection() {
-		return videosectionRepository.findAll();
+	@RequestMapping("/read/all/ordered")
+	public List<Videosection> readAllOrderedVideosection() {
+		return videosectionRepository.findByOrderByDateDisplayDesc();
 	}
 
 }

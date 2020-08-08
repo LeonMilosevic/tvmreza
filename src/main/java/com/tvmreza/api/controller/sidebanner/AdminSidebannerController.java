@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Sidebanner;
 import com.tvmreza.api.repositories.SidebannerRepository;
 
+/**
+ * Admin sidebanner controller, used for admin to perform CRUD operations for
+ * the side banner on the front-end.
+ * 
+ * @author leon
+ */
 @RestController
 @RequestMapping("/admin/sidebanner")
 public class AdminSidebannerController {

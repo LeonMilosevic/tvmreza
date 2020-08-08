@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tvmreza.api.entities.Sporazum;
 import com.tvmreza.api.repositories.SporazumRepository;
 
+/**
+ * Admin sporazum controller, used by admin to perform CRUD operations for the
+ * Sporazum entity.
+ * 
+ * @see SporazumRepository
+ * @author leon
+ */
 @RestController
 @RequestMapping("/admin/sporazum")
 public class AdminSporazumController {
@@ -59,9 +66,9 @@ public class AdminSporazumController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
+	@RequestMapping("/read/all/ordered")
 	public List<Sporazum> readAllSporazum() {
-		return sporazumRepository.findAll();
+		return sporazumRepository.findByOrderByDateDisplayDesc();
 	}
 
 }
