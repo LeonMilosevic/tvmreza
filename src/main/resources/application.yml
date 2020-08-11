@@ -1,3 +1,6 @@
+jwt:
+  secret: 'rQ:jx1VB5PWdMPPBEDko1L+HAHFrWlfC6c.i8g^g#'
+
 server:
   port: 8081
 spring:

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tvmreza.api.entities.Category;
-import com.tvmreza.api.exception.ExceptionHandling;
 import com.tvmreza.api.exception.domain.CategoryException;
 import com.tvmreza.api.services.category.AdminCategoryService;
 
@@ -27,7 +26,7 @@ import com.tvmreza.api.services.category.AdminCategoryService;
  */
 @RestController
 @RequestMapping("/admin/category")
-public class AdminCategoryController extends ExceptionHandling {
+public class AdminCategoryController extends Exception {
 
 	@Autowired
 	AdminCategoryService adminCategoryService;

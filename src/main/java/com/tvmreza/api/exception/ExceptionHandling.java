@@ -1,3 +1,4 @@
+/*
 package com.tvmreza.api.exception;
 
 import java.util.Objects;
@@ -54,3 +55,5 @@ public class ExceptionHandling {
 				httpStatus.getReasonPhrase().toUpperCase(), message.toUpperCase()), httpStatus);
 	}
 }
+
+*/
