@@ -59,6 +59,7 @@ public class AdminCategoryController extends Exception {
 	@GetMapping
 	@RequestMapping("/read/all/ordered")
 	public List<Category> readAllCategorySortedByCategoryOrder() {
+		System.out.println("here");
 		return adminCategoryService.readAllCategorySortedByCategoryOrder();
 	}
 }
