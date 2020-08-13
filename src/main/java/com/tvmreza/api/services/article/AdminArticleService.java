@@ -7,7 +7,7 @@ import com.tvmreza.api.entities.Article;
 
 public interface AdminArticleService {
 
-	Article createArticle(ArticleDtoRequest articleDtoRequest);
+	Article createArticle(ArticleDtoRequest articleDtoRequest) throws Exception;
 
 	Article readArticleById(Long id);
 

@@ -32,7 +32,7 @@ public class AdminArticleController {
 
 	@PostMapping
 	@RequestMapping("/create")
-	public Article createArticle(@RequestBody ArticleDtoRequest articleDtoRequest) {
+	public Article createArticle(@RequestBody ArticleDtoRequest articleDtoRequest) throws Exception {
 		return adminArticleService.createArticle(articleDtoRequest);
 	}
 

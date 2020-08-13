@@ -20,8 +20,14 @@ public class AdminArticleServiceImpl implements AdminArticleService {
 	CategoryRepository categoryRepository;
 
 	@Override
-	public Article createArticle(ArticleDtoRequest articleDtoRequest) {
-
+	public Article createArticle(ArticleDtoRequest articleDtoRequest) throws Exception {
+		if(articleDtoRequest.getAuthor().equals("") || articleDtoRequest.getKeywords().equals("") ||
+				articleDtoRequest.getContent().equals("") || articleDtoRequest.getHeader().equals("")) {
+			 throw new Exception();
+		}
+			
+			
+		
 		Category category = categoryRepository.getOne(articleDtoRequest.getCategoryId());
 
 		Article newArticle = new Article();

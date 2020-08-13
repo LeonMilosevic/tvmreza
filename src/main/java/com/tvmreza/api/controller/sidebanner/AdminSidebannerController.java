@@ -65,9 +65,9 @@ public class AdminSidebannerController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
+	@RequestMapping("/read/all/ordered")
 	public List<Sidebanner> readAllSidebanner() {
-		return sidebannerRepository.findAll();
+		return sidebannerRepository.findByOrderBySidebannerOrderAsc();
 	}
 
 }
