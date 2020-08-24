@@ -34,7 +34,7 @@ public class AdminPostController {
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all")
+	@RequestMapping("/read/all/ordered")
 	public List<Post> readAllPosts() {
 		return postRepository.findByOrderByDateCreatedDesc();
 	}
