@@ -1,6 +1,7 @@
 package com.tvmreza.api.controller.article;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,9 +44,25 @@ public class PublicArticleController {
 	}
 
 	@GetMapping
+	@RequestMapping("/read/all/ordered/8")
+	public List<Article> readAllOrderedArticlesLimited() {
+		List<Article> articles = articleRepository.findByOrderByDateDisplayDesc().stream().limit(8)
+				.collect(Collectors.toList());
+		return articles;
+	}
+
+	@GetMapping
 	@RequestMapping("/read/all/mostviewed")
 	public List<Article> readArticlesByMostViewed() {
 		return articleRepository.findByOrderByTimesViewedDesc();
+	}
+
+	@GetMapping
+	@RequestMapping("/read/all/mostviewed/8")
+	public List<Article> readArticlesByMostViewedLimited() {
+		List<Article> articles = articleRepository.findByOrderByTimesViewedDesc().stream().limit(8)
+				.collect(Collectors.toList());
+		return articles;
 	}
 
 }
