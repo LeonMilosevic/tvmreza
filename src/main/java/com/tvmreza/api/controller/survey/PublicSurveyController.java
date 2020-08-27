@@ -33,8 +33,13 @@ public class PublicSurveyController {
 	 * 
 	 * @return boolean true.
 	 */
-	public Survey readSurveyByTrue() {
-		return surveyRepository.findByDisplayTrue();
+	public Survey readSurveyByTrue() throws Exception {
+		Survey survey = surveyRepository.findByDisplayTrue();
+		if (survey == null) {
+			throw new Exception();
+		} else {
+			return survey;
+		}
 	}
 
 	@PutMapping
@@ -53,24 +58,24 @@ public class PublicSurveyController {
 
 		switch (question) { // takes the question param
 		case "questionOne":
-			Long currentCount = surveyFound.getQuestionOneCount(); // gets current count
-			surveyFound.setQuestionOneCount(++currentCount); // updates current count
+			Long currentCount = surveyFound.getAnswerOneCount(); // gets current count
+			surveyFound.setAnswerOneCount(++currentCount); // updates current count
 			break;
 		case "questionTwo":
-			Long currentCountTwo = surveyFound.getQuestionTwoCount();
-			surveyFound.setQuestionTwoCount(++currentCountTwo);
+			Long currentCountTwo = surveyFound.getAnswerTwoCount();
+			surveyFound.setAnswerTwoCount(++currentCountTwo);
 			break;
 		case "questionThree":
-			Long currentCountThree = surveyFound.getQuestionThreeCount();
-			surveyFound.setQuestionThreeCount(++currentCountThree);
+			Long currentCountThree = surveyFound.getAnswerThreeCount();
+			surveyFound.setAnswerThreeCount(++currentCountThree);
 			break;
 		case "questionFour":
-			Long currentCountFour = surveyFound.getQuestionFourCount();
-			surveyFound.setQuestionFourCount(++currentCountFour);
+			Long currentCountFour = surveyFound.getAnswerFourCount();
+			surveyFound.setAnswerFourCount(++currentCountFour);
 			break;
 		case "questionFive":
-			Long currentCountFive = surveyFound.getQuestionFiveCount();
-			surveyFound.setQuestionFiveCount(++currentCountFive);
+			Long currentCountFive = surveyFound.getAnswerFiveCount();
+			surveyFound.setAnswerFiveCount(++currentCountFive);
 			break;
 		}
 

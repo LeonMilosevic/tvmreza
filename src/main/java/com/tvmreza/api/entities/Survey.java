@@ -15,16 +15,17 @@ public class Survey {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private boolean display;
-	private String questionOne;
-	private String questionTwo;
-	private String questionThree;
-	private String questionFour;
-	private String questionFive;
-	private Long questionOneCount;
-	private Long questionTwoCount;
-	private Long questionThreeCount;
-	private Long questionFourCount;
-	private Long questionFiveCount;
+	private String question;
+	private String answerOne;
+	private String answerTwo;
+	private String answerThree;
+	private String answerFour;
+	private String answerFive;
+	private Long answerOneCount;
+	private Long answerTwoCount;
+	private Long answerThreeCount;
+	private Long answerFourCount;
+	private Long answerFiveCount;
 	private Timestamp dateCreated;
 
 	public Survey() {
@@ -46,84 +47,92 @@ public class Survey {
 		this.display = display;
 	}
 
-	public String getQuestionOne() {
-		return questionOne;
+	public String getQuestion() {
+		return question;
 	}
 
-	public void setQuestionOne(String questionOne) {
-		this.questionOne = questionOne;
+	public void setQuestion(String question) {
+		this.question = question;
 	}
 
-	public String getQuestionTwo() {
-		return questionTwo;
+	public String getAnswerOne() {
+		return answerOne;
 	}
 
-	public void setQuestionTwo(String questionTwo) {
-		this.questionTwo = questionTwo;
+	public void setAnswerOne(String answerOne) {
+		this.answerOne = answerOne;
 	}
 
-	public String getQuestionThree() {
-		return questionThree;
+	public String getAnswerTwo() {
+		return answerTwo;
 	}
 
-	public void setQuestionThree(String questionThree) {
-		this.questionThree = questionThree;
+	public void setAnswerTwo(String answerTwo) {
+		this.answerTwo = answerTwo;
 	}
 
-	public String getQuestionFour() {
-		return questionFour;
+	public String getAnswerThree() {
+		return answerThree;
 	}
 
-	public void setQuestionFour(String questionFour) {
-		this.questionFour = questionFour;
+	public void setAnswerThree(String answerThree) {
+		this.answerThree = answerThree;
 	}
 
-	public String getQuestionFive() {
-		return questionFive;
+	public String getAnswerFour() {
+		return answerFour;
 	}
 
-	public void setQuestionFive(String questionFive) {
-		this.questionFive = questionFive;
+	public void setAnswerFour(String answerFour) {
+		this.answerFour = answerFour;
 	}
 
-	public Long getQuestionOneCount() {
-		return questionOneCount;
+	public String getAnswerFive() {
+		return answerFive;
 	}
 
-	public void setQuestionOneCount(Long questionOneCount) {
-		this.questionOneCount = questionOneCount;
+	public void setAnswerFive(String answerFive) {
+		this.answerFive = answerFive;
 	}
 
-	public Long getQuestionTwoCount() {
-		return questionTwoCount;
+	public Long getAnswerOneCount() {
+		return answerOneCount;
 	}
 
-	public void setQuestionTwoCount(Long questionTwoCount) {
-		this.questionTwoCount = questionTwoCount;
+	public void setAnswerOneCount(Long answerOneCount) {
+		this.answerOneCount = answerOneCount;
 	}
 
-	public Long getQuestionThreeCount() {
-		return questionThreeCount;
+	public Long getAnswerTwoCount() {
+		return answerTwoCount;
 	}
 
-	public void setQuestionThreeCount(Long questionThreeCount) {
-		this.questionThreeCount = questionThreeCount;
+	public void setAnswerTwoCount(Long answerTwoCount) {
+		this.answerTwoCount = answerTwoCount;
 	}
 
-	public Long getQuestionFourCount() {
-		return questionFourCount;
+	public Long getAnswerThreeCount() {
+		return answerThreeCount;
 	}
 
-	public void setQuestionFourCount(Long questionFourCount) {
-		this.questionFourCount = questionFourCount;
+	public void setAnswerThreeCount(Long answerThreeCount) {
+		this.answerThreeCount = answerThreeCount;
 	}
 
-	public Long getQuestionFiveCount() {
-		return questionFiveCount;
+	public Long getAnswerFourCount() {
+		return answerFourCount;
 	}
 
-	public void setQuestionFiveCount(Long questionFiveCount) {
-		this.questionFiveCount = questionFiveCount;
+	public void setAnswerFourCount(Long answerFourCount) {
+		this.answerFourCount = answerFourCount;
+	}
+
+	public Long getAnswerFiveCount() {
+		return answerFiveCount;
+	}
+
+	public void setAnswerFiveCount(Long answerFiveCount) {
+		this.answerFiveCount = answerFiveCount;
 	}
 
 	public Timestamp getDateCreated() {

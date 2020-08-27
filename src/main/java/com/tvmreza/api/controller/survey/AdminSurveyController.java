@@ -47,11 +47,12 @@ public class AdminSurveyController {
 	public Survey updateSurvey(@PathVariable("id") Long id, @RequestBody Survey reqSurvey) {
 		Survey surveyToUpdate = surveyRepository.getOne(id);
 		surveyToUpdate.setDisplay(reqSurvey.isDisplay());
-		surveyToUpdate.setQuestionOne(reqSurvey.getQuestionOne());
-		surveyToUpdate.setQuestionTwo(reqSurvey.getQuestionTwo());
-		surveyToUpdate.setQuestionThree(reqSurvey.getQuestionThree());
-		surveyToUpdate.setQuestionFour(reqSurvey.getQuestionFour());
-		surveyToUpdate.setQuestionFive(reqSurvey.getQuestionFive());
+		surveyToUpdate.setQuestion(reqSurvey.getQuestion());
+		surveyToUpdate.setAnswerOne(reqSurvey.getAnswerOne());
+		surveyToUpdate.setAnswerTwo(reqSurvey.getAnswerTwo());
+		surveyToUpdate.setAnswerThree(reqSurvey.getAnswerThree());
+		surveyToUpdate.setAnswerFour(reqSurvey.getAnswerFour());
+		surveyToUpdate.setAnswerFive(reqSurvey.getAnswerFive());
 		return surveyRepository.save(surveyToUpdate);
 	}
 
