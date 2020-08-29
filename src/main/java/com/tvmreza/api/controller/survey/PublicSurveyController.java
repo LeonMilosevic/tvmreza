@@ -43,40 +43,59 @@ public class PublicSurveyController {
 	}
 
 	@PutMapping
-	@RequestMapping("/vote/{id}/{question}")
+	@RequestMapping("/vote/{id}/{answer}")
 	/**
 	 * Receives the current survey being displayed, receives the question that was
 	 * chosen to submit, stores it in the database by incrementing the count of the
 	 * specific question.
 	 * 
-	 * @param id       - id of the survey currently being desplayed.
+	 * @param id       - id of the survey currently being displayed.
 	 * @param question - will be the question that was voted(chosen) by the client.
 	 * @return updated survey entity.
 	 */
-	public Survey voteSurvey(@PathVariable("id") Long id, @PathVariable("question") String question) {
+	public Survey voteSurvey(@PathVariable("id") Long id, @PathVariable("answer") String answer) throws Exception {
 		Survey surveyFound = surveyRepository.findById(id).get();
 
-		switch (question) { // takes the question param
-		case "questionOne":
+		System.out.println(answer);
+
+		switch (answer) { // takes the answer param
+		case "answerOne":
 			Long currentCount = surveyFound.getAnswerOneCount(); // gets current count
+			if (currentCount == null) {
+				currentCount = (long) 0;
+			}
 			surveyFound.setAnswerOneCount(++currentCount); // updates current count
 			break;
-		case "questionTwo":
+		case "answerTwo":
 			Long currentCountTwo = surveyFound.getAnswerTwoCount();
+			if (currentCountTwo == null) {
+				currentCountTwo = (long) 0;
+			}
 			surveyFound.setAnswerTwoCount(++currentCountTwo);
 			break;
-		case "questionThree":
+		case "answerThree":
 			Long currentCountThree = surveyFound.getAnswerThreeCount();
+			if (currentCountThree == null) {
+				currentCountThree = (long) 0;
+			}
 			surveyFound.setAnswerThreeCount(++currentCountThree);
 			break;
-		case "questionFour":
+		case "answerFour":
 			Long currentCountFour = surveyFound.getAnswerFourCount();
+			if (currentCountFour == null) {
+				currentCountFour = (long) 0;
+			}
 			surveyFound.setAnswerFourCount(++currentCountFour);
 			break;
-		case "questionFive":
+		case "answerFive":
 			Long currentCountFive = surveyFound.getAnswerFiveCount();
+			if (currentCountFive == null) {
+				currentCountFive = (long) 0;
+			}
 			surveyFound.setAnswerFiveCount(++currentCountFive);
 			break;
+		default:
+			throw new Exception();
 		}
 
 		return surveyRepository.save(surveyFound);
