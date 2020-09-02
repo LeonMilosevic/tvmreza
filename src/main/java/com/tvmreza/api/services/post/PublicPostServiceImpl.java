@@ -25,17 +25,21 @@ public class PublicPostServiceImpl implements PublicPostService {
 	 * 
 	 * @return saved post
 	 */
-	public Post createPost(PostDtoRequest postDtoRequest) {
+	public Post createPost(PostDtoRequest postDtoRequest) throws Exception {
 		Article article = articleRepository.getOne(postDtoRequest.getArticleId());
 		Post newPost = new Post();
 
-		newPost.setArticle(article);
-		newPost.setUsername(postDtoRequest.getUsername());
-		newPost.setTextContent(postDtoRequest.getTextContent());
+		if (postDtoRequest.getUsername().isEmpty() || postDtoRequest.getTextContent().isEmpty()) {
+			throw new Exception();
+		} else {
+			newPost.setArticle(article);
+			newPost.setUsername(postDtoRequest.getUsername());
+			newPost.setTextContent(postDtoRequest.getTextContent());
 
-		article.getPosts().add(newPost);
+			article.getPosts().add(newPost);
 
-		return postRepository.save(newPost);
+			return postRepository.save(newPost);
+		}
 	}
 
 }

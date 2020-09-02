@@ -11,7 +11,7 @@ import com.tvmreza.api.entities.Post;
 import com.tvmreza.api.services.post.PublicPostService;
 
 /**
- * Clients will be able to create posts. 
+ * Clients will be able to create posts.
  * 
  * @see PublicPostService, PostDtoRequest
  * @author leon
@@ -26,7 +26,7 @@ public class PublicPostController {
 
 	@PostMapping
 	@RequestMapping("/create")
-	public Post createPost(@RequestBody PostDtoRequest postDtoRequest) {
+	public Post createPost(@RequestBody PostDtoRequest postDtoRequest) throws Exception {
 		return postService.createPost(postDtoRequest);
 	}
 

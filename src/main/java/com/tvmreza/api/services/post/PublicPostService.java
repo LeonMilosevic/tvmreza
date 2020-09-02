@@ -5,6 +5,6 @@ import com.tvmreza.api.entities.Post;
 
 public interface PublicPostService {
 
-	Post createPost(PostDtoRequest postDtoRequest);
+	Post createPost(PostDtoRequest postDtoRequest) throws Exception;
 
 }
