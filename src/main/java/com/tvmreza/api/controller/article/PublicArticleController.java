@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tvmreza.api.entities.Article;
@@ -39,30 +42,38 @@ public class PublicArticleController {
 
 	@GetMapping
 	@RequestMapping("/read/all/newest")
-	public List<Article> readArticlesByNewest() {
-		return articleRepository.findByOrderByDateDisplayDesc();
-	}
-
-	@GetMapping
-	@RequestMapping("/read/all/ordered/8")
-	public List<Article> readAllOrderedArticlesLimited() {
-		List<Article> articles = articleRepository.findByOrderByDateDisplayDesc().stream().limit(8)
-				.collect(Collectors.toList());
-		return articles;
+	public List<Article> readArticlesByNewest(
+			@RequestParam(name = "pageNumber", defaultValue = "0") final int pageNumber,
+			@RequestParam(name = "pageSize", defaultValue = "5") final int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		return articleRepository.findByOrderByDateDisplayDesc(pageable);
 	}
 
 	@GetMapping
 	@RequestMapping("/read/all/mostviewed")
-	public List<Article> readArticlesByMostViewed() {
-		return articleRepository.findByOrderByTimesViewedDesc();
+	public List<Article> readArticlesByMostViewed(
+			@RequestParam(name = "pageNumber", defaultValue = "0") final int pageNumber,
+			@RequestParam(name = "pageSize", defaultValue = "5") final int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		return articleRepository.findByOrderByTimesViewedDesc(pageable);
 	}
 
 	@GetMapping
-	@RequestMapping("/read/all/mostviewed/8")
-	public List<Article> readArticlesByMostViewedLimited() {
-		List<Article> articles = articleRepository.findByOrderByTimesViewedDesc().stream().limit(8)
-				.collect(Collectors.toList());
+	@RequestMapping("/read/by/{keyword}")
+	public List<Article> readArticlesByKeyword(@PathVariable("keyword") String keyword) {
+		List<Article> articles = articleRepository.findByKeywordsOrderByDateDisplayDesc(keyword);
+
 		return articles;
+	}
+
+	@GetMapping
+	@RequestMapping("/read/by/category/{id}")
+	public List<Article> readArticleByCategory(@PathVariable("id") Long id,
+			@RequestParam(name = "pageNumber", defaultValue = "0") final int pageNumber,
+			@RequestParam(name = "pageSize", defaultValue = "5") final int pageSize) {
+		Pageable pageable = PageRequest.of(pageNumber, pageSize);
+		List<Article> articlesByCategory = articleRepository.findByCategoryIdOrderByDateDisplayDesc(id, pageable);
+		return articlesByCategory;
 	}
 
 }

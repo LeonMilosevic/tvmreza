@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import org.springframework.data.domain.Pageable;
+
 @Entity
 @Table(name = "category")
 public class Category {
